@@ -1,6 +1,6 @@
 # Quantitative Momentum Portfolio
 
-A systematic trend-following and momentum strategy built in Python, backtested from 2019–2024 and connected to live paper trading via the Alpaca Markets API.
+A systematic trend-following and momentum strategy built in Python, backtested across **20 years (2005–2024)** and connected to live paper trading via the Alpaca Markets API.
 
 Built as a personal quantitative finance project, with a custom execution layer inspired by the open-source [GS Quant](https://github.com/goldmansachs/gs-quant) library's architecture.
 
@@ -19,7 +19,7 @@ If no ETF passes the trend filter, the strategy moves to 100% cash — a built-i
 
 **Universe:** SPY · QQQ · IWM · TLT · GLD  
 **Rebalance:** Monthly, last trading day  
-**Transaction cost:** 5 bps per trade
+**Transaction cost:** 10 bps per trade
 
 ---
 
@@ -47,8 +47,8 @@ Moving Average · EMA · Bollinger Bands · RSI (14-day EWMA) · MACD (12/26/9) 
 
 ## Validation
 
-- **Walk-forward test:** In-sample (2019–2021) vs. out-of-sample (2022–2024) to check for overfitting
-- **Parameter sensitivity:** 3×3 grid of fast/slow moving average windows — Sharpe and CAGR heatmaps
+- **Walk-forward test:** 5-window expanding walk-forward (OOS periods: 2011–2012, 2013–2015, 2016–2018, 2019–2021, 2022–2024) with fixed parameters — never re-fitted on OOS data
+- **Parameter sensitivity:** 4×4 grid of fast/slow moving average windows — Sharpe and CAGR heatmaps
 - **Benchmark:** 60/40 portfolio (monthly-rebalanced 60% SPY / 40% TLT) + SPY buy-and-hold
 
 ---
@@ -56,7 +56,7 @@ Moving Average · EMA · Bollinger Bands · RSI (14-day EWMA) · MACD (12/26/9) 
 ## Project Structure
 
 ```
-quant-momentum-portfolio/
+Osgood-Quant/
 ├── quant_portfolio.ipynb       # Full strategy: research, backtest, analytics, live trading
 ├── quant_portfolio.html        # Rendered presentation (open in any browser)
 └── gs_quant_alpaca/            # Custom execution layer
